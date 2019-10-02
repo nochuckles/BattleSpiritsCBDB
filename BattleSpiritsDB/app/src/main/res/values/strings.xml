@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BattleSpiritsDB</string>
+    <string name="rarity">Rarity:</string>
+    <string name="set">Set:</string>
+    <string name="code">Code:</string>
+    <string name="imageDesc">aki va un dijimon</string>
+</resources>

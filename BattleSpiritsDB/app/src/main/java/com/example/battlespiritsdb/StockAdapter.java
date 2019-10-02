@@ -1,0 +1,137 @@
+package com.example.battlespiritsdb;
+
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+
+import static android.app.Activity.RESULT_OK;
+
+public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
+
+    public static final String EXTRA_QUANTITY =
+            "com.example.room.EXTRA_QUANTITY";
+
+    private OnItemClickListener listener;
+    private Context mContext;
+    private CardDao cardDao;
+    private CardViewModel cardViewModel;
+
+    protected StockAdapter() {
+
+        super(DIFF_CALLBACK);
+    }
+
+    private static final DiffUtil.ItemCallback<Card> DIFF_CALLBACK = new DiffUtil.ItemCallback<Card>() {
+        @Override
+        public boolean areItemsTheSame(Card oldItem, Card newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(Card oldItem, Card newItem) {
+            return oldItem.getCardImage() == newItem.getCardImage() &&
+                    oldItem.getCardName().equals(newItem.getCardName()) &&
+                    oldItem.getCardCode().equals(newItem.getCardCode());
+
+        }
+    };
+
+    @NonNull
+    @Override
+    public CardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.stock_item, parent, false);
+        mContext = parent.getContext();
+        return new CardHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CardHolder holder, int position) {
+        final Card currentCard = getItem(position);
+        StockActivity stockActivity = new StockActivity();
+        cardViewModel = ViewModelProviders.of(stockActivity).get(CardViewModel.class);
+
+        Picasso.with(mContext).load(currentCard.getCardImage()).fit().centerInside().into(holder.cardImage);
+        holder.cardName.setText(currentCard.getCardName());
+        holder.cardCode.setText(currentCard.getCardCode());
+
+
+        if (currentCard.getQuantity() == 0) {
+            holder.aSwitch.setChecked(false);
+        } else {
+            holder.aSwitch.setChecked(true);
+        }
+
+
+
+        holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true) {
+                    cardViewModel.updateField(currentCard.getId(), 1);
+                    Toast.makeText(mContext, "CHANGED", Toast.LENGTH_SHORT).show();
+                } else {
+                    cardViewModel.updateField(currentCard.getId(), 0);
+                    Toast.makeText(mContext, "OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+
+    class CardHolder extends RecyclerView.ViewHolder {
+
+        private ImageView cardImage;
+        private TextView cardName;
+        private TextView cardCode;
+        private Switch aSwitch;
+
+        public CardHolder(View itemView) {
+            super(itemView);
+            cardImage = itemView.findViewById(R.id.cardImage);
+            cardName = itemView.findViewById(R.id.cardName);
+            cardCode = itemView.findViewById(R.id.cardCode);
+            aSwitch = itemView.findViewById(R.id.switchQuantity);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(getItem(position));
+                    }
+                }
+            });
+        }
+
+        public ImageView getCardImage() {
+            return cardImage;
+        }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Card card);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
+}
