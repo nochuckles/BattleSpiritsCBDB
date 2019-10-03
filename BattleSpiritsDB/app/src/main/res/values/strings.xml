@@ -4,4 +4,5 @@
     <string name="set">Set:</string>
     <string name="code">Code:</string>
     <string name="imageDesc">aki va un dijimon</string>
+    <string name="contentDesc">cardImage</string>
 </resources>

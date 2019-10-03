@@ -2,7 +2,6 @@ package com.example.battlespiritsdb;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +12,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import static android.app.Activity.RESULT_OK;
 
 public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
 
-    public static final String EXTRA_QUANTITY =
-            "com.example.room.EXTRA_QUANTITY";
-
     private OnItemClickListener listener;
     private Context mContext;
-    private CardDao cardDao;
     private CardViewModel cardViewModel;
 
     protected StockAdapter(Application application) {
@@ -71,6 +64,8 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
         holder.cardName.setText(currentCard.getCardName());
         holder.cardCode.setText(currentCard.getCardCode());
 
+        holder.aSwitch.setOnCheckedChangeListener(null);
+
         if (currentCard.getQuantity() == 1) {
             holder.aSwitch.setChecked(true);
         } else {
@@ -82,13 +77,14 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked == true) {
                     cardViewModel.updateField(currentCard.getId(), 1);
-                    Toast.makeText(mContext, "CHANGED", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Una menos, quedan solo pff o mas", Toast.LENGTH_SHORT).show();
                 } else {
                     cardViewModel.updateField(currentCard.getId(), 0);
-                    Toast.makeText(mContext, "OFF", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+
 
     }
 
@@ -118,7 +114,7 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
             });
         }
 
-        public ImageView getCardImage() {
+       public ImageView getCardImage() {
             return cardImage;
         }
     }

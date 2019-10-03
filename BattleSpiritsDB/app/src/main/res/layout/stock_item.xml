@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:clickable="true"
+    android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
     cardview:cardCornerRadius="4dp">
 
@@ -20,14 +21,15 @@
             android:layout_width="109dp"
             android:layout_height="165dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img1" />
+            android:src="@drawable/img1"
+            android:contentDescription="@string/contentDesc"/>
 
         <TextView
             android:id="@+id/cardName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Agumon"
+            android:text=""
             android:textColor="#2d2d2d"
             android:textSize="13sp"
             android:textStyle="bold" />
@@ -38,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:gravity="center"
-            android:text="CBloquesea"
+            android:text=""
             android:textColor="#2d2d2d"
             android:textSize="10sp" />
 
@@ -46,12 +48,8 @@
             android:id="@+id/switchQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="2"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="33dp"
-            android:textOff="OFF"
-            android:textOn="ON" />
+            android:layout_marginStart="33dp" />
 
     </LinearLayout>
 
