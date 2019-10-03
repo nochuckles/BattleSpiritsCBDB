@@ -37,7 +37,7 @@ public class StockActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         recyclerView.setHasFixedSize(true);
 
-        final StockAdapter adapter = new StockAdapter();
+        final StockAdapter adapter = new StockAdapter(getApplication());
         recyclerView.setAdapter(adapter);
 
         cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);

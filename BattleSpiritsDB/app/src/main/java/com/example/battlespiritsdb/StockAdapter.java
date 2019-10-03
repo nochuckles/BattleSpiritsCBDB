@@ -1,5 +1,6 @@
 package com.example.battlespiritsdb;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -31,9 +32,11 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
     private CardDao cardDao;
     private CardViewModel cardViewModel;
 
-    protected StockAdapter() {
+    protected StockAdapter(Application application) {
 
         super(DIFF_CALLBACK);
+        cardViewModel = new CardViewModel(application);
+
     }
 
     private static final DiffUtil.ItemCallback<Card> DIFF_CALLBACK = new DiffUtil.ItemCallback<Card>() {
@@ -63,21 +66,16 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
     @Override
     public void onBindViewHolder(@NonNull CardHolder holder, int position) {
         final Card currentCard = getItem(position);
-        StockActivity stockActivity = new StockActivity();
-        cardViewModel = ViewModelProviders.of(stockActivity).get(CardViewModel.class);
 
         Picasso.with(mContext).load(currentCard.getCardImage()).fit().centerInside().into(holder.cardImage);
         holder.cardName.setText(currentCard.getCardName());
         holder.cardCode.setText(currentCard.getCardCode());
 
-
-        if (currentCard.getQuantity() == 0) {
-            holder.aSwitch.setChecked(false);
-        } else {
+        if (currentCard.getQuantity() == 1) {
             holder.aSwitch.setChecked(true);
+        } else {
+            holder.aSwitch.setChecked(false);
         }
-
-
 
         holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

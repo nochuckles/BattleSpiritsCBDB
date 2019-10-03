@@ -50,7 +50,6 @@
             android:layout_column="2"
             android:layout_marginTop="5dp"
             android:layout_marginStart="33dp"
-            android:checked="false"
             android:textOff="OFF"
             android:textOn="ON" />
 
