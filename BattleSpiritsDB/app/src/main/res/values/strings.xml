@@ -5,4 +5,10 @@
     <string name="code">Code:</string>
     <string name="imageDesc">aki va un dijimon</string>
     <string name="contentDesc">cardImage</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="digimon_card">Digimon Card</string>
+    <string name="quantity">Quantity:</string>
+    <string name="name">Name:</string>
 </resources>

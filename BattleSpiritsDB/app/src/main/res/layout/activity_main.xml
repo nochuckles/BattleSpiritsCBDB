@@ -87,6 +87,7 @@
                     android:id="@+id/panchomon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="onClick"
                     android:src="@drawable/agumonicon" />
             </LinearLayout>
 

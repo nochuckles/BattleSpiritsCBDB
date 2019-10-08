@@ -1,11 +1,14 @@
 package com.example.battlespiritsdb;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -18,6 +21,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
 
     private OnItemClickListener listener;
     private Context mContext;
+    private Intent myIntent;
 
     protected CardAdapter() {
 
@@ -60,6 +64,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
         holder.cardSet.setText(currentCard.getCardSet());
         holder.rarity.setText(currentCard.getRarity());
 
+
     }
 
 
@@ -83,10 +88,12 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                    /*int position = getAdapterPosition();*/
+                    Toast.makeText(mContext, "epaepa", Toast.LENGTH_SHORT).show();
+                    Log.d("LogDiaViewHolder","epaepa");
+                    /*if (listener != null && position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(getItem(position));
-                    }
+                    }*/
                 }
             });
         }
@@ -94,6 +101,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
         public ImageView getCardImage() {
             return cardImage;
         }
+
     }
 
     public interface OnItemClickListener {

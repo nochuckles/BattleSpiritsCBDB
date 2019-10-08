@@ -1,11 +1,13 @@
 package com.example.battlespiritsdb;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,7 +15,8 @@ import java.util.List;
 
 import static com.example.battlespiritsdb.MainActivity.hideSystemBars;
 
-public class cardListActivity extends AppCompatActivity {
+
+public class CardListActivity extends AppCompatActivity {
 
     private CardViewModel cardViewModel;
     private View decorView;
@@ -57,6 +60,5 @@ public class cardListActivity extends AppCompatActivity {
             decorView.setSystemUiVisibility(hideSystemBars());
         }
     }
-
 
 }

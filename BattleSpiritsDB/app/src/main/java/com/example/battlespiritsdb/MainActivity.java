@@ -1,19 +1,11 @@
 package com.example.battlespiritsdb;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ActionMode;
 import android.view.View;
 
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,10 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()) {
             case R.id.agumon:
-                myIntent = new Intent(MainActivity.this, cardListActivity.class);
+                myIntent = new Intent(MainActivity.this, CardListActivity.class);
                 break;
             case R.id.gabumon:
                 myIntent = new Intent(MainActivity.this, StockActivity.class);
+                break;
+            case R.id.panchomon:
+                myIntent = new Intent(MainActivity.this, CardShowData.class);
                 break;
 
         }

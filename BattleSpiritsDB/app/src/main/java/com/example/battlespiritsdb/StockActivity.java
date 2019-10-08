@@ -4,28 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.Toast;
 
 import java.util.List;
 
 import static com.example.battlespiritsdb.MainActivity.hideSystemBars;
 
-public class StockActivity extends AppCompatActivity {
 
-    public static final String EXTRA_QUANTITY =
-            "com.example.room.EXTRA_QUANTITY";
+public class StockActivity extends AppCompatActivity {
 
     private CardViewModel cardViewModel;
     private View decorView;
-    private Switch aSwitch;
 
 
     @Override
