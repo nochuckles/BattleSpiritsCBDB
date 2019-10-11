@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
+
+import com.trendyol.bubblescrollbarlib.BubbleScrollBar;
+import com.trendyol.bubblescrollbarlib.BubbleTextProvider;
 
 import java.util.List;
 
@@ -20,6 +24,7 @@ public class CardListActivity extends AppCompatActivity {
 
     private CardViewModel cardViewModel;
     private View decorView;
+    private LinearLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +32,10 @@ public class CardListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_card_list);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, layoutManager.getOrientation() ));
 
         final CardAdapter adapter = new CardAdapter();
         recyclerView.setAdapter(adapter);

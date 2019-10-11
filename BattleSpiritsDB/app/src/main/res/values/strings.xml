@@ -6,9 +6,23 @@
     <string name="imageDesc">aki va un dijimon</string>
     <string name="contentDesc">cardImage</string>
     <string name="title_activity_search">SearchActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
     <string name="digimon_card">Digimon Card</string>
     <string name="quantity">Quantity:</string>
     <string name="name">Name:</string>
+    <string name="cards_left">CARDS LEFT</string>
+    <string name="title_activity_card_filter">CardFilter</string>
+    <string name="tabText1">Name</string>
+    <string name="tabText2">Set</string>
+    <string name="tabText3">Rarity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="none">NONE</string>
+    <string name="common">COMMON</string>
+    <string name="uncommon">UNCOMMON</string>
+    <string name="rare">RARE</string>
+    <string name="master_rare">MASTER RARE</string>
+    <string name="x_rare">X RARE</string>
+    <string name="xx_rare">XX RARE</string>
+    <string name="secret">SECRET</string>
 </resources>

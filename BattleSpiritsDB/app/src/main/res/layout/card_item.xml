@@ -1,135 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:cardView="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp">
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    cardView:cardCornerRadius="8dp"
+    cardView:cardUseCompatPadding="true"
+    cardView:cardBackgroundColor="#00000000">
 
-    <androidx.cardview.widget.CardView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cv"
-        android:foreground="?android:attr/selectableItemBackground"
-        cardView:cardCornerRadius="4dp"
-        android:clickable="true" >
+        android:background="@drawable/cardview_bg">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-             >
+        <ImageView
+            android:id="@+id/cardImage"
+            android:layout_width="149dp"
+            android:layout_height="215dp"
+            android:contentDescription="@string/imageDesc"
+            android:padding="10dp"
+            android:src="@drawable/img287"
+            cardView:layout_constraintCircleRadius="10dp"
+            cardView:layout_constraintStart_toStartOf="parent"
+            cardView:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/cardName"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:text="AQUI VA EL NOMBRE"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/cardImage"
-                    android:layout_width="140dp"
-                    android:layout_height="240dp"
-                    android:contentDescription="@string/imageDesc"
-                    android:src="@drawable/img1" />
+        <TextView
+            android:id="@+id/txtCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/code"
+            android:textSize="14sp"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/cardName" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+        <TextView
+            android:id="@+id/cardCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="CB05/CB05-XX01"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/txtCode" />
 
-                    <TextView
-                        android:id="@+id/cardName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="17dp"
-                        android:text=""
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtSet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/set"
+            android:textSize="14sp"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/cardCode" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/quantity"
+            android:textSize="14sp"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/cardRarity" />
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="25dp"
-                            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txtRarity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/rarity"
+            android:textSize="14sp"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/cardSet" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/code" />
+        <TextView
+            android:id="@+id/cardSet"
+            android:layout_width="183dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="15dp"
+            android:text="Collaboration Booster (Digimon - Settle it! Card Slash!)"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/txtSet" />
 
-                            <TextView
-                                android:id="@+id/cardCode"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="14dp"
-                                android:text="" />
+        <TextView
+            android:id="@+id/cardRarity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="MASTER RARE"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/txtRarity" />
 
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/set" />
-
-                            <TextView
-                                android:id="@+id/cardSet"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="27dp"
-                                android:text="" />
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/rarity" />
-
-                            <TextView
-                                android:id="@+id/cardRarity"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="11dp"
-                                android:text="" />
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
+        <TextView
+            android:id="@+id/cardQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="1"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            cardView:layout_constraintStart_toEndOf="@+id/cardImage"
+            cardView:layout_constraintTop_toBottomOf="@+id/txtQuantity" />
 
 
-            </LinearLayout>
-
-        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-
-    </androidx.cardview.widget.CardView>
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

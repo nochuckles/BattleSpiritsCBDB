@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".CardsLeftActivity"
+    tools:showIn="@layout/activity_cards_left"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cards_left"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/cardsLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asdfasdfasdf"
+            android:layout_marginStart="15dp"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"/>
+
+
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/single_card_item"
+        app:fastScrollEnabled="true"
+        app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
+        app:fastScrollHorizontalTrackDrawable="@drawable/line_drawable"
+        app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
+        app:fastScrollVerticalTrackDrawable="@drawable/line_drawable"/>
+
+
+
+
+
+</LinearLayout>

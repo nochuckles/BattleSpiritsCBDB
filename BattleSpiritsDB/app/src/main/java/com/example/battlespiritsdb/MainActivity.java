@@ -9,8 +9,6 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CardViewModel cardViewModel;
-
     private View decorView;
 
     @Override
@@ -35,13 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()) {
             case R.id.agumon:
-                myIntent = new Intent(MainActivity.this, CardListActivity.class);
+                myIntent = new Intent(this, CardListActivity.class);
                 break;
             case R.id.gabumon:
-                myIntent = new Intent(MainActivity.this, StockActivity.class);
+                myIntent = new Intent(this, StockActivity.class);
                 break;
             case R.id.panchomon:
-                myIntent = new Intent(MainActivity.this, CardShowData.class);
+                myIntent = new Intent(this, CardFilter.class);
+                break;
+            case R.id.FedericoGarciaLorca:
+                myIntent = new Intent(this, CardsLeftActivity.class);
                 break;
 
         }

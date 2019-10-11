@@ -10,12 +10,15 @@ import java.util.List;
 public class CardRepository {
 
     private CardDao cardDao;
-    private LiveData<List<Card>> allCards;
+    private LiveData<List<Card>> allCards, sortedCards, sortByName, sortBySet, sortByRarity;
+    private String proxy = "";
 
     public CardRepository(Application application) {
         CardDatabase database = CardDatabase.getInstance(application);
         cardDao = database.cardDao();
         allCards = cardDao.getAllCards();
+        sortedCards = cardDao.getSortedCards();
+        sortByName = cardDao.sortByName();
     }
 
     public void insert(Card card) { new InsertCardAsyncTask(cardDao).execute(card); }
@@ -29,6 +32,18 @@ public class CardRepository {
     public LiveData<List<Card>> getAllCards() { return allCards; }
 
     public void UpdateField(int id, int quant) { new UpdateFieldAsyncTask(cardDao, id).execute(quant); }
+
+    public LiveData<List<Card>> getSortedCards() { return sortedCards; }
+
+    public int cardsGot() { return cardDao.cardsGot(); }
+
+    public int countCards() { return cardDao.countCards(); }
+
+    public LiveData<List<Card>> sortByName() { return sortByName; }
+
+    public LiveData<List<Card>> sortBySet(String set) { return sortBySet; }
+
+    public LiveData<List<Card>> sortByRarity(String rarity) { return cardDao.sortByRarity(rarity); }
 
 
     private static class InsertCardAsyncTask extends AsyncTask<Card, Void, Void> {

@@ -11,12 +11,16 @@ import java.util.List;
 public class CardViewModel extends AndroidViewModel {
 
     private CardRepository repository;
-    private LiveData<List<Card>> allCards;
+    private CardRepository repoArgs;
+    private LiveData<List<Card>> allCards, sortedCards, sortByName, sortBySet, sortByRarity;
+    private String proxy = "";
 
     public CardViewModel(@NonNull Application application) {
         super(application);
         repository = new CardRepository(application);
         allCards = repository.getAllCards();
+        sortedCards = repository.getSortedCards();
+        sortByName = repository.sortByName();
     }
 
     public void insert(Card card) { repository.insert(card); }
@@ -30,5 +34,17 @@ public class CardViewModel extends AndroidViewModel {
     public LiveData<List<Card>> getAllCards() { return allCards; }
 
     public void updateField(int id, int quant) { repository.UpdateField(id, quant); }
+
+    public LiveData<List<Card>> getSortedCards() { return sortedCards; }
+
+    public int cardsGot() { return repository.cardsGot(); }
+
+    public int countCards() { return repository.countCards(); }
+
+    public LiveData<List<Card>> sortByName() { return sortByName; }
+
+    public LiveData<List<Card>> sortBySet(String set) { return sortBySet; }
+
+    public LiveData<List<Card>> sortByRarity(String rarity) { return repository.sortByRarity(rarity); }
 
 }
