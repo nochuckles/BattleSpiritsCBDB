@@ -45,7 +45,7 @@ public interface CardDao {
     @Query("SELECT * FROM cards_table WHERE cardSet = :set")
     LiveData<List<Card>> sortBySet(String set);
 
-    @Query("SELECT * FROM cards_table WHERE rarity = :rarity ")
+    @Query("SELECT * FROM cards_table WHERE rarity = :rarity ORDER BY cardCode")
     LiveData<List<Card>> sortByRarity(String rarity);
 
 
