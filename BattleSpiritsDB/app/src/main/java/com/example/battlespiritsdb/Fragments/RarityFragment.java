@@ -65,7 +65,7 @@ public class RarityFragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private String Rarity = XX_RARE;
     private boolean isFABOpen = false;
-    private FloatingActionButton fab1, fab2, fab3;
+    private FloatingActionButton none, common, uncommon, rare, master_rare, x_rare, xx_rare, secret;
 
     public RarityFragment() {
         // Required empty public constructor
@@ -123,9 +123,15 @@ public class RarityFragment extends Fragment {
         });
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-        fab1 = (FloatingActionButton) view.findViewById(R.id.fab2);
-        fab2 = (FloatingActionButton) view.findViewById(R.id.fab3);
-        fab3 = (FloatingActionButton) view.findViewById(R.id.fab4);
+        none = (FloatingActionButton) view.findViewById(R.id.none);
+        common = (FloatingActionButton) view.findViewById(R.id.common);
+        uncommon = (FloatingActionButton) view.findViewById(R.id.uncommon);
+        rare = (FloatingActionButton) view.findViewById(R.id.rare);
+        master_rare = (FloatingActionButton) view.findViewById(R.id.master_rare);
+        x_rare = (FloatingActionButton) view.findViewById(R.id.x_rare);
+        xx_rare = (FloatingActionButton) view.findViewById(R.id.xx_rare);
+        secret = (FloatingActionButton) view.findViewById(R.id.secret);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,6 +141,14 @@ public class RarityFragment extends Fragment {
                     closeFABMenu();
                 }
 
+            }
+        });
+
+        none.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Rarity = NONE;
+                adapter.notifyDataSetChanged();
             }
         });
 
@@ -153,16 +167,28 @@ public class RarityFragment extends Fragment {
 
     private void showFABMenu() {
         isFABOpen = true;
-        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
-        fab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
-        fab3.animate().translationY(-getResources().getDimension(R.dimen.standard_155));
+        none.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
+        common.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
+        uncommon.animate().translationY(-getResources().getDimension(R.dimen.standard_155));
+        rare.animate().translationY(-getResources().getDimension(R.dimen.standard_205));
+        master_rare.animate().translationY(-getResources().getDimension(R.dimen.standard_255));
+        x_rare.animate().translationY(-getResources().getDimension(R.dimen.standard_305));
+        xx_rare.animate().translationY(-getResources().getDimension(R.dimen.standard_355));
+        secret.animate().translationY(-getResources().getDimension(R.dimen.standard_405));
+
     }
 
     private void closeFABMenu() {
         isFABOpen = false;
-        fab1.animate().translationY(0);
-        fab2.animate().translationY(0);
-        fab3.animate().translationY(0);
+        none.animate().translationY(0);
+        common.animate().translationY(0);
+        uncommon.animate().translationY(0);
+        rare.animate().translationY(0);
+        master_rare.animate().translationY(0);
+        x_rare.animate().translationY(0);
+        xx_rare.animate().translationY(0);
+        secret.animate().translationY(0);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
