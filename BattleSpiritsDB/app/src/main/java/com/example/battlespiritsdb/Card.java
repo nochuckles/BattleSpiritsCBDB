@@ -45,11 +45,11 @@ public class Card {
         return cardName;
     }
 
-    public String getCardSet() {
+    String getCardSet() {
         return cardSet;
     }
 
-    public int getQuantity() {
+    int getQuantity() {
         return quantity;
     }
 

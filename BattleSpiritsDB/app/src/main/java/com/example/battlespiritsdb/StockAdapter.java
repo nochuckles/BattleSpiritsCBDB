@@ -9,7 +9,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -25,7 +24,7 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
     private Context mContext;
     private CardViewModel cardViewModel;
 
-    protected StockAdapter(Application application) {
+    StockAdapter(Application application) {
 
         super(DIFF_CALLBACK);
         cardViewModel = new CardViewModel(application);
@@ -75,9 +74,8 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
         holder.aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked == true) {
+                if (isChecked) {
                     cardViewModel.updateField(currentCard.getId(), 1);
-                    Toast.makeText(mContext, "Una menos, quedan solo pff o mas", Toast.LENGTH_SHORT).show();
                 } else {
                     cardViewModel.updateField(currentCard.getId(), 0);
                 }
@@ -96,7 +94,7 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
         private TextView cardCode;
         private Switch aSwitch;
 
-        public CardHolder(View itemView) {
+        private CardHolder(View itemView) {
             super(itemView);
             cardImage = itemView.findViewById(R.id.cardImage);
             cardName = itemView.findViewById(R.id.cardName);

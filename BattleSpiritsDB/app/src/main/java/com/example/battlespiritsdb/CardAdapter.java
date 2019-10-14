@@ -2,14 +2,11 @@ package com.example.battlespiritsdb;
 
 import android.content.Context;
 import android.content.Intent;
-import android.sax.StartElementListener;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -22,9 +19,8 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
 
     private OnItemClickListener listener;
     private Context mContext;
-    private Intent myIntent;
 
-    protected CardAdapter() {
+    CardAdapter() {
 
         super(DIFF_CALLBACK);
 
@@ -79,7 +75,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
         private TextView quantity;
         private TextView rarity;
 
-        public CardHolder(View itemView) {
+        CardHolder(View itemView) {
             super(itemView);
             cardImage = itemView.findViewById(R.id.cardImage);
             cardName = itemView.findViewById(R.id.cardName);
@@ -92,6 +88,9 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(getItem(position));
+                    }
                     Intent i = new Intent(mContext, CardShowData.class);
                     mContext.startActivity(i);
                 }
@@ -105,7 +104,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View card);
+        void onItemClick(Card card);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {

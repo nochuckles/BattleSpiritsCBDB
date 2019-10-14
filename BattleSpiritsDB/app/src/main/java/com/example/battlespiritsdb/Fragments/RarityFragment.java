@@ -2,10 +2,13 @@ package com.example.battlespiritsdb.Fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -18,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.battlespiritsdb.Card;
 import com.example.battlespiritsdb.CardViewModel;
@@ -63,7 +67,6 @@ public class RarityFragment extends Fragment {
     private CardViewModel cardViewModel;
     private View decorView;
     private LinearLayoutManager layoutManager;
-    private String Rarity = XX_RARE;
     private boolean isFABOpen = false;
     private FloatingActionButton none, common, uncommon, rare, master_rare, x_rare, xx_rare, secret;
 
@@ -115,7 +118,7 @@ public class RarityFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
-        cardViewModel.sortByRarity(Rarity).observe(this, new Observer<List<Card>>() {
+        cardViewModel.sortByRarity(COMMON).observe(this, new Observer<List<Card>>() {
             @Override
             public void onChanged(List<Card> cards) {
                 adapter.submitList(cards);
@@ -147,18 +150,112 @@ public class RarityFragment extends Fragment {
         none.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Rarity = NONE;
-                adapter.notifyDataSetChanged();
+                cardViewModel.sortByRarity(NONE).observe((LifecycleOwner) getContext(), new Observer<List<Card>>() {
+                    @Override
+                    public void onChanged(List<Card> cards) {
+                        adapter.submitList(cards);
+                    }
+                });
+
+                changeColor(none);
             }
         });
 
-        decorView = getActivity().getWindow().getDecorView();
-        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+        common.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSystemUiVisibilityChange(int visibility) {
-                if (visibility == 0) {
-                    decorView.setSystemUiVisibility(hideSystemBars());
-                }
+            public void onClick(View v) {
+                cardViewModel.sortByRarity(COMMON).observe((LifecycleOwner) getContext(), new Observer<List<Card>>() {
+                    @Override
+                    public void onChanged(List<Card> cards) {
+                        adapter.submitList(cards);
+                    }
+                });
+
+                changeColor(common);
+            }
+        });
+
+        uncommon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardViewModel.sortByRarity(UNCOMMON).observe((LifecycleOwner) getContext(), new Observer<List<Card>>() {
+                    @Override
+                    public void onChanged(List<Card> cards) {
+                        adapter.submitList(cards);
+                    }
+                });
+
+                changeColor(uncommon);
+            }
+        });
+
+        rare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardViewModel.sortByRarity(RARE).observe((LifecycleOwner) getContext(), new Observer<List<Card>>() {
+                    @Override
+                    public void onChanged(List<Card> cards) {
+                        adapter.submitList(cards);
+                    }
+                });
+
+                changeColor(rare);
+            }
+        });
+
+        master_rare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardViewModel.sortByRarity(MASTER_RARE).observe((LifecycleOwner) getContext(), new Observer<List<Card>>() {
+                    @Override
+                    public void onChanged(List<Card> cards) {
+                        adapter.submitList(cards);
+                    }
+                });
+
+                changeColor(master_rare);
+            }
+        });
+
+        x_rare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardViewModel.sortByRarity(X_RARE).observe((LifecycleOwner) getContext(), new Observer<List<Card>>() {
+                    @Override
+                    public void onChanged(List<Card> cards) {
+                        adapter.submitList(cards);
+                    }
+                });
+
+                changeColor(x_rare);
+            }
+        });
+
+        xx_rare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardViewModel.sortByRarity(XX_RARE).observe((LifecycleOwner) getContext(), new Observer<List<Card>>() {
+                    @Override
+                    public void onChanged(List<Card> cards) {
+                        adapter.submitList(cards);
+                    }
+                });
+
+                changeColor(xx_rare);
+            }
+        });
+
+        secret.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardViewModel.sortByRarity(SECRET).observe((LifecycleOwner) getContext(), new Observer<List<Card>>() {
+                    @Override
+                    public void onChanged(List<Card> cards) {
+                        adapter.submitList(cards);
+                    }
+                });
+
+                changeColor(secret);
             }
         });
 
@@ -189,6 +286,19 @@ public class RarityFragment extends Fragment {
         xx_rare.animate().translationY(0);
         secret.animate().translationY(0);
 
+    }
+
+    private void changeColor(FloatingActionButton button) {
+        none.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+        common.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+        uncommon.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+        rare.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+        master_rare.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+        x_rare.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+        xx_rare.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+        secret.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+
+        button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFFFF")));
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -42,7 +42,7 @@
             android:gravity="center"
             android:text=""
             android:textColor="#2d2d2d"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
 
         <Switch
             android:id="@+id/switchQuantity"

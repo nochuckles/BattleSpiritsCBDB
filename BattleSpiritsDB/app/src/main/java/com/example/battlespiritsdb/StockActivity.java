@@ -15,7 +15,6 @@ import static com.example.battlespiritsdb.MainActivity.hideSystemBars;
 
 public class StockActivity extends AppCompatActivity {
 
-    private CardViewModel cardViewModel;
     private View decorView;
 
 
@@ -31,7 +30,7 @@ public class StockActivity extends AppCompatActivity {
         final StockAdapter adapter = new StockAdapter(getApplication());
         recyclerView.setAdapter(adapter);
 
-        cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
+        CardViewModel cardViewModel = ViewModelProviders.of(this).get(CardViewModel.class);
         cardViewModel.getAllCards().observe(this, new Observer<List<Card>>() {
             @Override
             public void onChanged(List<Card> cards) {
@@ -39,26 +38,10 @@ public class StockActivity extends AppCompatActivity {
             }
         });
 
-        decorView = getWindow().getDecorView();
-        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-            @Override
-            public void onSystemUiVisibilityChange(int visibility) {
-                if (visibility == 0) {
-                    decorView.setSystemUiVisibility(hideSystemBars());
-                }
-            }
-        });
 
 
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            decorView.setSystemUiVisibility(hideSystemBars());
-        }
-    }
 
 
 

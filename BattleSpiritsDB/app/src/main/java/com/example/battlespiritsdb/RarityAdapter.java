@@ -1,6 +1,5 @@
 package com.example.battlespiritsdb;
 
-import android.app.Application;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +60,7 @@ public class RarityAdapter extends ListAdapter<Card, RarityAdapter.CardHolder> {
 
         private ImageView cardImage;
 
-        public CardHolder(View itemView) {
+        private CardHolder(View itemView) {
             super(itemView);
             cardImage = itemView.findViewById(R.id.cardImage);
 

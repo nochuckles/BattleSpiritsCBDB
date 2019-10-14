@@ -8,10 +8,6 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Shader;
 
-import com.squareup.picasso.Transformation;
-
-import java.util.List;
-
 public class RoundCornersTransformation implements com.squareup.picasso.Transformation {
     private final int radius;  // dp
     private final int margin;  // dp
@@ -25,14 +21,14 @@ public class RoundCornersTransformation implements com.squareup.picasso.Transfor
      * @param radius radius is corner radii in dp
      * @param margin margin is the board in dp
      */
-    public RoundCornersTransformation(final int radius, final int margin) {
+    private RoundCornersTransformation(final int radius, final int margin) {
         this.radius = radius;
         this.margin = margin;
         if (KEY.isEmpty()) KEY = "rounded_" + radius + margin;
     }
 
-    public RoundCornersTransformation(final int radius, final int margin, boolean topCornersOnly,
-                                      boolean bottomCornersOnly) {
+    RoundCornersTransformation(final int radius, final int margin, boolean topCornersOnly,
+                               boolean bottomCornersOnly) {
         this(radius, margin);
         topCorners = topCornersOnly;
         bottomCorners = bottomCornersOnly;
@@ -88,9 +84,9 @@ public class RoundCornersTransformation implements com.squareup.picasso.Transfor
      * @param bottomLeft
      * @return
      */
-    public static Path RoundedRect(float leftX, float topY, float rightX, float bottomY, float rx,
-                                   float ry, boolean topLeft, boolean topRight, boolean
-                                           bottomRight, boolean bottomLeft) {
+    private static Path RoundedRect(float leftX, float topY, float rightX, float bottomY, float rx,
+                                    float ry, boolean topLeft, boolean topRight, boolean
+                                            bottomRight, boolean bottomLeft) {
         Path path = new Path();
         if (rx < 0) rx = 0;
         if (ry < 0) ry = 0;

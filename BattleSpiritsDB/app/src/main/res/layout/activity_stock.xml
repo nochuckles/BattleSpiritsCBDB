@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     tools:context=".StockActivity"
     tools:showIn="@layout/activity_stock"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/colorPrimaryDark">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gridView"

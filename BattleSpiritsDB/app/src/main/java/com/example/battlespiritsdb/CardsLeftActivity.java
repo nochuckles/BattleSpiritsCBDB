@@ -19,8 +19,6 @@ public class CardsLeftActivity extends AppCompatActivity {
 
     private CardViewModel cardViewModel;
     private View decorView;
-    private TextView cardsLeft;
-    private String trackLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,29 +42,13 @@ public class CardsLeftActivity extends AppCompatActivity {
 
         trackLeft();
 
-        decorView = getWindow().getDecorView();
-        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-            @Override
-            public void onSystemUiVisibilityChange(int visibility) {
-                if (visibility == 0) {
-                    decorView.setSystemUiVisibility(hideSystemBars());
-                }
-            }
-        });
-
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            decorView.setSystemUiVisibility(hideSystemBars());
-        }
-    }
+
 
     private void trackLeft() {
 
-        cardsLeft = findViewById(R.id.cardsLeft);
+        TextView cardsLeft = findViewById(R.id.cardsLeft);
 
         final AtomicInteger cardsGot = new AtomicInteger();
         Thread t = new Thread(new Runnable() {
@@ -99,7 +81,7 @@ public class CardsLeftActivity extends AppCompatActivity {
         }
 
 
-        trackLeft = String.valueOf(cardsGot) + "/" + String.valueOf(countCards);
+        String trackLeft = String.valueOf(cardsGot) + "/" + String.valueOf(countCards);
 
 
         cardsLeft.setText(trackLeft);

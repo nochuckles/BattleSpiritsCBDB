@@ -10,8 +10,7 @@ import java.util.List;
 public class CardRepository {
 
     private CardDao cardDao;
-    private LiveData<List<Card>> allCards, sortedCards, sortByName, sortBySet, sortByRarity;
-    private String proxy = "";
+    private LiveData<List<Card>> allCards, sortedCards, sortByName;
 
     public CardRepository(Application application) {
         CardDatabase database = CardDatabase.getInstance(application);
@@ -41,9 +40,9 @@ public class CardRepository {
 
     public LiveData<List<Card>> sortByName() { return sortByName; }
 
-    public LiveData<List<Card>> sortBySet(String set) { return sortBySet; }
-
     public LiveData<List<Card>> sortByRarity(String rarity) { return cardDao.sortByRarity(rarity); }
+
+    public LiveData<List<Card>> sortBySet(String set) { return cardDao.sortBySet(set); }
 
 
     private static class InsertCardAsyncTask extends AsyncTask<Card, Void, Void> {
