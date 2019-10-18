@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -59,6 +60,8 @@ public class RarityAdapter extends ListAdapter<Card, RarityAdapter.CardHolder> {
     class CardHolder extends RecyclerView.ViewHolder {
 
         private ImageView cardImage;
+        private String quantity, name, set;
+        private Card currentCard;
 
         private CardHolder(View itemView) {
             super(itemView);
@@ -71,6 +74,14 @@ public class RarityAdapter extends ListAdapter<Card, RarityAdapter.CardHolder> {
                     if (listener != null && position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(getItem(position));
                     }
+
+                    currentCard = getItem(position);
+                    quantity = String.valueOf(currentCard.getQuantity());
+                    name = currentCard.getCardName();
+                    set = currentCard.getCardSet();
+
+                    Toast.makeText(mContext, "NAME: " + name + "\nSET: " + set + "\nOWNED: " + quantity, Toast.LENGTH_SHORT).show();
+
                 }
             });
         }

@@ -1,7 +1,6 @@
 package com.example.battlespiritsdb.Fragments;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.net.Uri;
@@ -11,29 +10,28 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.battlespiritsdb.Card;
 import com.example.battlespiritsdb.CardViewModel;
-import com.example.battlespiritsdb.NameAdapter;
 import com.example.battlespiritsdb.R;
 import com.example.battlespiritsdb.RarityAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
-import static com.example.battlespiritsdb.MainActivity.hideSystemBars;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,7 +66,7 @@ public class RarityFragment extends Fragment {
     private View decorView;
     private LinearLayoutManager layoutManager;
     private boolean isFABOpen = false;
-    private FloatingActionButton none, common, uncommon, rare, master_rare, x_rare, xx_rare, secret;
+    private FloatingActionButton fab, none, common, uncommon, rare, master_rare, x_rare, xx_rare, secret;
 
     public RarityFragment() {
         // Required empty public constructor
@@ -125,7 +123,7 @@ public class RarityFragment extends Fragment {
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        fab = (FloatingActionButton) view.findViewById(R.id.fab);
         none = (FloatingActionButton) view.findViewById(R.id.none);
         common = (FloatingActionButton) view.findViewById(R.id.common);
         uncommon = (FloatingActionButton) view.findViewById(R.id.uncommon);
@@ -158,6 +156,8 @@ public class RarityFragment extends Fragment {
                 });
 
                 changeColor(none);
+                Toast.makeText(getContext(), "RARITY: " + NONE, Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -172,6 +172,7 @@ public class RarityFragment extends Fragment {
                 });
 
                 changeColor(common);
+                Toast.makeText(getContext(), "RARITY: " + COMMON, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -186,6 +187,7 @@ public class RarityFragment extends Fragment {
                 });
 
                 changeColor(uncommon);
+                Toast.makeText(getContext(), "RARITY: " + UNCOMMON, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -200,6 +202,7 @@ public class RarityFragment extends Fragment {
                 });
 
                 changeColor(rare);
+                Toast.makeText(getContext(), "RARITY: " + RARE, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -214,6 +217,7 @@ public class RarityFragment extends Fragment {
                 });
 
                 changeColor(master_rare);
+                Toast.makeText(getContext(), "RARITY: " + MASTER_RARE, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -228,6 +232,7 @@ public class RarityFragment extends Fragment {
                 });
 
                 changeColor(x_rare);
+                Toast.makeText(getContext(), "RARITY: " + X_RARE, Toast.LENGTH_SHORT).show();;
             }
         });
 
@@ -242,6 +247,7 @@ public class RarityFragment extends Fragment {
                 });
 
                 changeColor(xx_rare);
+                Toast.makeText(getContext(), "RARITY: " + XX_RARE, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -256,6 +262,7 @@ public class RarityFragment extends Fragment {
                 });
 
                 changeColor(secret);
+                Toast.makeText(getContext(), "RARITY: " + SECRET, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -273,6 +280,8 @@ public class RarityFragment extends Fragment {
         xx_rare.animate().translationY(-getResources().getDimension(R.dimen.standard_355));
         secret.animate().translationY(-getResources().getDimension(R.dimen.standard_405));
 
+        fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#a31e4f")));
+
     }
 
     private void closeFABMenu() {
@@ -286,6 +295,8 @@ public class RarityFragment extends Fragment {
         xx_rare.animate().translationY(0);
         secret.animate().translationY(0);
 
+        fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+
     }
 
     private void changeColor(FloatingActionButton button) {
@@ -298,7 +309,7 @@ public class RarityFragment extends Fragment {
         xx_rare.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
         secret.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
 
-        button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFFFF")));
+        button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#a31e4f")));
     }
 
     // TODO: Rename method, update argument and hook method into UI event

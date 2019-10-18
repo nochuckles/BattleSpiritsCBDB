@@ -1,32 +1,28 @@
 package com.example.battlespiritsdb.Fragments;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.ColorInt;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.battlespiritsdb.Card;
 import com.example.battlespiritsdb.CardViewModel;
-import com.example.battlespiritsdb.NameAdapter;
 import com.example.battlespiritsdb.R;
 import com.example.battlespiritsdb.RarityAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,7 +30,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-import static com.example.battlespiritsdb.MainActivity.hideSystemBars;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,7 +47,7 @@ public class SetFragment extends Fragment {
 
     private static final String CB02 = "Collaboration Booster (Digimon Super-Digivolution!)";
     private static final String CB03 = "Collaboration Booster (Digimon Super-Digivolution! Ver. 1.5)";
-    private static final String CB05 = "Collaboration Booster (Our Digimon Adventure!";
+    private static final String CB05 = "Collaboration Booster (Our Digimon Adventure!)";
     private static final String CB07 = "Collaboration Booster (Digimon - Settle it! Card Slash!)";
     private static final String PROMOS = "Promos";
     private static final String SD45 = "Collaboration Starter (The Chosen Children)";
@@ -68,7 +63,7 @@ public class SetFragment extends Fragment {
     private View decorView;
     private LinearLayoutManager layoutManager;
     private boolean isFABOpen = false;
-    private FloatingActionButton cb02, cb03, cb05, cb07, promos, sd45, bsbg;
+    private FloatingActionButton fab, cb02, cb03, cb05, cb07, promos, sd45, bsbg;
 
     public SetFragment() {
         // Required empty public constructor
@@ -124,7 +119,7 @@ public class SetFragment extends Fragment {
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        fab = (FloatingActionButton) view.findViewById(R.id.fab);
         cb02 = (FloatingActionButton) view.findViewById(R.id.cb02);
         cb03 = (FloatingActionButton) view.findViewById(R.id.cb03);
         cb05 = (FloatingActionButton) view.findViewById(R.id.cb05);
@@ -156,7 +151,7 @@ public class SetFragment extends Fragment {
                 });
 
                 changeColor(cb02);
-
+                Toast.makeText(getContext(), "SET: " + CB02, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -171,7 +166,7 @@ public class SetFragment extends Fragment {
                 });
 
                 changeColor(cb03);
-
+                Toast.makeText(getContext(), "SET: " + CB03, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -186,6 +181,7 @@ public class SetFragment extends Fragment {
                 });
 
                 changeColor(cb05);
+                Toast.makeText(getContext(), "SET: " + CB05, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -200,6 +196,7 @@ public class SetFragment extends Fragment {
                 });
 
                 changeColor(cb07);
+                Toast.makeText(getContext(), "SET: " + CB07, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -214,6 +211,7 @@ public class SetFragment extends Fragment {
                 });
 
                 changeColor(promos);
+                Toast.makeText(getContext(), "SET: " + PROMOS, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -228,6 +226,7 @@ public class SetFragment extends Fragment {
                 });
 
                 changeColor(sd45);
+                Toast.makeText(getContext(), "SET: " + SD45, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -242,6 +241,7 @@ public class SetFragment extends Fragment {
                 });
 
                 changeColor(bsbg);
+                Toast.makeText(getContext(), "SET: " + BSBG, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -260,6 +260,8 @@ public class SetFragment extends Fragment {
         sd45.animate().translationY(-getResources().getDimension(R.dimen.standard_305));
         bsbg.animate().translationY(-getResources().getDimension(R.dimen.standard_355));
 
+        fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#a31e4f")));
+
     }
 
     private void closeFABMenu() {
@@ -272,6 +274,8 @@ public class SetFragment extends Fragment {
         sd45.animate().translationY(0);
         bsbg.animate().translationY(0);
 
+        fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
+
     }
 
     private void changeColor(FloatingActionButton button) {
@@ -283,7 +287,7 @@ public class SetFragment extends Fragment {
         bsbg.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
         sd45.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#D81B60")));
 
-        button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFFFF")));
+        button.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#a31e4f")));
     }
 
     // TODO: Rename method, update argument and hook method into UI event

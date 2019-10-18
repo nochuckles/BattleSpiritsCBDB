@@ -2,11 +2,13 @@ package com.example.battlespiritsdb;
 
 import android.app.Application;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -82,8 +84,6 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
             }
         });
 
-
-
     }
 
 
@@ -94,12 +94,16 @@ public class StockAdapter extends ListAdapter<Card, StockAdapter.CardHolder> {
         private TextView cardCode;
         private Switch aSwitch;
 
+        private LinearLayout linearLayout;
+
         private CardHolder(View itemView) {
             super(itemView);
             cardImage = itemView.findViewById(R.id.cardImage);
             cardName = itemView.findViewById(R.id.cardName);
             cardCode = itemView.findViewById(R.id.cardCode);
             aSwitch = itemView.findViewById(R.id.switchQuantity);
+
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.linearL);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

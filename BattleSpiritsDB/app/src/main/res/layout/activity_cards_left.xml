@@ -1,58 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".CardsLeftActivity"
-    tools:showIn="@layout/activity_cards_left"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".CardsLeftActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
+        <ImageView
+            android:id="@+id/backArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cards_left"
-            android:textStyle="bold"
-            android:padding="8dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:onClick="onClick"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back" />
 
-        <TextView
-            android:id="@+id/cardsLeft"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="asdfasdfasdf"
-            android:layout_marginStart="15dp"
-            android:padding="8dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/digimon_basic"
+                android:text="@string/cards_left_header"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cardsLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="6dp"
+                android:layout_toRightOf="@+id/txtLeft"
+                android:fontFamily="@font/digimon_basic"
+                android:text="0/290"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
 
 
-    </LinearLayout>
-
+    </RelativeLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gridView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        tools:listitem="@layout/single_card_item"
+        android:layout_gravity="center|top"
         app:fastScrollEnabled="true"
         app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
         app:fastScrollHorizontalTrackDrawable="@drawable/line_drawable"
         app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
-        app:fastScrollVerticalTrackDrawable="@drawable/line_drawable"/>
-
-
-
+        app:fastScrollVerticalTrackDrawable="@drawable/line_drawable"
+        tools:listitem="@layout/single_card_item" />
 
 
 </LinearLayout>

@@ -9,7 +9,7 @@
     <string name="digimon_card">Digimon Card</string>
     <string name="quantity">Quantity:</string>
     <string name="name">Name:</string>
-    <string name="cards_left">CARDS LEFT</string>
+    <string name="cards_left_header">CARDS LEFT</string>
     <string name="title_activity_card_filter">CardFilter</string>
     <string name="tabText1">Name</string>
     <string name="tabText2">Set</string>
@@ -25,4 +25,6 @@
     <string name="x_rare">X RARE</string>
     <string name="xx_rare">XX RARE</string>
     <string name="secret">SECRET</string>
+    <string name="card_list_header">CARD LIST</string>
+    <string name="inventory_header">INVENTORY</string>
 </resources>

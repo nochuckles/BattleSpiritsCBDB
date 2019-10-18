@@ -75,7 +75,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
         private TextView quantity;
         private TextView rarity;
 
-        CardHolder(View itemView) {
+        private CardHolder(View itemView) {
             super(itemView);
             cardImage = itemView.findViewById(R.id.cardImage);
             cardName = itemView.findViewById(R.id.cardName);
@@ -91,8 +91,7 @@ public class CardAdapter extends ListAdapter<Card, CardAdapter.CardHolder> {
                     if (listener != null && position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(getItem(position));
                     }
-                    Intent i = new Intent(mContext, CardShowData.class);
-                    mContext.startActivity(i);
+
                 }
             });
         }

@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".CardFilter"
             android:label="@string/title_activity_card_filter"
@@ -25,7 +26,7 @@
         <activity
             android:name=".CardListActivity"
             android:launchMode="singleTop" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".OnStartAnimation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

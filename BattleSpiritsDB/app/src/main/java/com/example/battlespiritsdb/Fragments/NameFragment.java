@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,15 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.battlespiritsdb.Card;
-import com.example.battlespiritsdb.CardAdapter;
 import com.example.battlespiritsdb.CardViewModel;
-import com.example.battlespiritsdb.CardsLeftAdapter;
 import com.example.battlespiritsdb.NameAdapter;
 import com.example.battlespiritsdb.R;
 
 import java.util.List;
 
-import static com.example.battlespiritsdb.MainActivity.hideSystemBars;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -102,16 +98,6 @@ public class NameFragment extends Fragment {
             @Override
             public void onChanged(List<Card> cards) {
                 adapter.submitList(cards);
-            }
-        });
-
-        decorView = getActivity().getWindow().getDecorView();
-        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-            @Override
-            public void onSystemUiVisibilityChange(int visibility) {
-                if (visibility == 0) {
-                    decorView.setSystemUiVisibility(hideSystemBars());
-                }
             }
         });
 

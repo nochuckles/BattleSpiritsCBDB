@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -66,6 +67,8 @@ public class NameAdapter extends ListAdapter<Card, NameAdapter.CardHolder> {
         private ImageView cardImage;
         private TextView cardName;
         private TextView cardCode;
+        private Card currentCard;
+        private String quantity;
 
         private CardHolder(View itemView) {
             super(itemView);
@@ -80,6 +83,11 @@ public class NameAdapter extends ListAdapter<Card, NameAdapter.CardHolder> {
                     if (listener != null && position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(getItem(position));
                     }
+
+                    currentCard = getItem(position);
+                    quantity = String.valueOf(currentCard.getQuantity());
+
+                    Toast.makeText(mContext, "OWN: " + quantity, Toast.LENGTH_SHORT).show();
                 }
             });
         }

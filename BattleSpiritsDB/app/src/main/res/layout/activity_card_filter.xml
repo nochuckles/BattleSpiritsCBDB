@@ -5,20 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CardFilter"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    android:layout_gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="?attr/colorPrimary">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:onClick="onClick"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_arrow_back" />
+
+
+    </LinearLayout>
+
 
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_gravity="end|right"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
 
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|right"
             android:background="?attr/colorPrimary" />
     </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
