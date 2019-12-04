@@ -29,7 +29,7 @@
         app:fabSize="mini"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_add"
         app:useCompatPadding="true"
         app:elevation="0dp"/>
 
@@ -40,7 +40,7 @@
         app:fabSize="mini"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_add"
         app:useCompatPadding="true"
         app:elevation="0dp"/>
 
@@ -51,7 +51,7 @@
         app:fabSize="mini"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_add"
         app:useCompatPadding="true"
         app:elevation="0dp"/>
 
@@ -62,7 +62,7 @@
         app:fabSize="mini"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_add"
         app:useCompatPadding="true"
         app:elevation="0dp"/>
 
@@ -74,7 +74,7 @@
         app:fabSize="mini"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_add"
         app:useCompatPadding="true"
         app:elevation="0dp"/>
 
@@ -85,7 +85,7 @@
         app:fabSize="mini"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_add"
         app:useCompatPadding="true"
         app:elevation="0dp"/>
 
@@ -96,7 +96,7 @@
         app:fabSize="mini"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_add"
         app:useCompatPadding="true"
         app:elevation="0dp"/>
 
@@ -107,7 +107,7 @@
         app:fabSize="mini"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_add"
         app:useCompatPadding="true"
         app:elevation="0dp"/>
 
@@ -117,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/ic_search"
         app:elevation="0dp"/>
 
 

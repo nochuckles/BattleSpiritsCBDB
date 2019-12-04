@@ -27,17 +27,17 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = null;
 
         switch (view.getId()) {
-            case R.id.agumon:
+            case R.id.patamon:
                 myIntent = new Intent(this, CardListActivity.class);
                 break;
-            case R.id.gabumon:
+            case R.id.angemon:
                 myIntent = new Intent(this, StockActivity.class);
                 break;
-            case R.id.panchomon:
-                myIntent = new Intent(this, CardFilter.class);
-                break;
-            case R.id.FedericoGarciaLorca:
+            case R.id.magnaangemon:
                 myIntent = new Intent(this, CardsLeftActivity.class);
+                break;
+            case R.id.seraphimon:
+                myIntent = new Intent(this, CardFilter.class);
                 break;
 
         }

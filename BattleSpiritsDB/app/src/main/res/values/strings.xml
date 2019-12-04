@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BattleSpiritsDB</string>
+    <string name="app_name">Digimon Collectors</string>
     <string name="rarity">Rarity:</string>
     <string name="set">Set:</string>
     <string name="code">Code:</string>
@@ -27,4 +27,8 @@
     <string name="secret">SECRET</string>
     <string name="card_list_header">CARD LIST</string>
     <string name="inventory_header">INVENTORY</string>
+    <string name="cards_left">CARDS LEFT</string>
+    <string name="search">SEARCH</string>
+    <string name="inventory">INVENTORY</string>
+    <string name="card_list">CARD LIST</string>
 </resources>
